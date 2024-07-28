@@ -1,3 +1,9 @@
+interface UpdateWithOptions {
+    name?: string;
+    description?:string;
+    price?: number
+}
+
 export class Product {
     constructor(
         public id: string,
@@ -6,5 +12,10 @@ export class Product {
         public price: number,
 
     ) { }
-    //TODO updateWith
+
+    updateWith({ name, description, price}:UpdateWithOptions){
+        this.name = name ?? this.name;
+        this.description = description ?? this.description;
+        this.price = price ?? this.price;
+    }
 }
